@@ -35,4 +35,10 @@ for article in article_list:
     
     '''Находим даты статей'''
     date_tag = article.find("time")
-    print(date_tag)
+    if date_tag:
+        date = date_tag["datetime"].split("T")[0]
+    else:
+        date = "Дата не найдена"
+    
+    result_list.append(f"{date} - {title} - {link}")
+    
