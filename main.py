@@ -40,5 +40,10 @@ for article in article_list:
     else:
         date = "Дата не найдена"
     
+
     result_list.append(f"{date} - {title} - {link}")
-    
+
+if result_list:
+    print("\n".join(result_list))
+else:
+    print("Записей с даннымми ключевыми словами не найдено")
