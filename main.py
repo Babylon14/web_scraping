@@ -12,6 +12,19 @@ soup = bs4.BeautifulSoup(responce.text, features="lxml")
 article_list = soup.find_all("article")
 
 
+result_list = []
+
 for article in article_list:
     '''Находим список заголовков'''
-    pass
+    title_tag = article.find("h2", class_="tm-title tm-title_h2")
+    if not title_tag:
+        continue
+
+    title = title_tag.text.strip()
+    if not any(key.lower() in title.lower() for key in KEYWORDS):
+        continue
+    
+
+    '''Находим список ссылок на статьи'''
+    link_tag = title_tag.find("a", class_="tm-title__link")
+    print(link_tag)
