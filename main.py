@@ -27,4 +27,12 @@ for article in article_list:
 
     '''Находим список ссылок на статьи'''
     link_tag = title_tag.find("a", class_="tm-title__link")
-    print(link_tag)
+    if link_tag:
+        link = "https://habr.com" + link_tag["href"]
+    else:
+        link = "Ссылка не найдена"
+    
+    
+    '''Находим даты статей'''
+    date_tag = article.find("time")
+    print(date_tag)
